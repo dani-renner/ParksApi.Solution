@@ -43,14 +43,27 @@ namespace ParksApi.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark(int id)
     {
-        var park = await _db.Parks.FindAsync(id);
-
-        if (park == null)
-        {
-            return NotFound();
-        }
-
-        return park;
+      var park = await _db.Parks.FindAsync(id);
+      if (park == null)
+      {
+        return NotFound();
+      }
+      return park;
+    }
+    /// <summary>
+    /// Gets a random park for you to check out.
+    /// </summary>
+    [HttpGet("random")]
+    public async Task<ActionResult<Park>> GetRandomPark()
+    {
+      Random rand = new Random();
+      int id = rand.Next(1, _db.Parks.Count());
+      var park = await _db.Parks.FindAsync(id);
+      if (park == null)
+      {
+        return NotFound();
+      }
+      return park;
     }
     /// <summary>
     /// Creates a Park.
@@ -77,7 +90,6 @@ namespace ParksApi.Controllers
     {
       _db.Parks.Add(park);
       await _db.SaveChangesAsync();
-
       return CreatedAtAction(nameof(GetPark), new { id = park.ParkId }, park);
     }
     /// <summary>
