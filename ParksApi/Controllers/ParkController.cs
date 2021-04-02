@@ -20,6 +20,9 @@ namespace ParksApi.Controllers
     {
       _db = db;
     }
+    /// <summary>
+    /// Shows all parks.
+    /// </summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get(string name, string location)
     {
@@ -34,6 +37,9 @@ namespace ParksApi.Controllers
       }
       return await query.ToListAsync();
     }
+    /// <summary>
+    /// Shows a specific park.
+    /// </summary>
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark(int id)
     {
@@ -74,6 +80,21 @@ namespace ParksApi.Controllers
 
       return CreatedAtAction(nameof(GetPark), new { id = park.ParkId }, park);
     }
+    /// <summary>
+    /// Edit a park.
+    /// </summary>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     POST /Park
+    ///     {
+    ///        "id": 5,
+    ///        "name": "Frontenac State Park",
+    ///        "sqmiles": 4,
+    ///        "location": "MN"
+    ///     }
+    ///
+    /// </remarks>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     {
