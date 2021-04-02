@@ -1,19 +1,22 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Park.Models;
-namespace Park.Controllers
+using ParksApi.Models;
+using System.Reflection;
+
+namespace ParksApi.Controllers
 {
   [Produces("application/json")]
   [Route("api/[controller]")]
   [ApiController]
   public class ParksController : ControllerBase
   {
-    private readonly ParkContext _db;
-    public ParksController(ParkContext db)
+    private readonly ParksApiContext _db;
+    public ParksController(ParksApiContext db)
     {
       _db = db;
     }
@@ -44,7 +47,7 @@ namespace Park.Controllers
         return park;
     }
     /// <summary>
-    /// Creates an Park.
+    /// Creates a Park.
     /// </summary>
     /// <remarks>
     /// Sample request:
