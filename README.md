@@ -19,7 +19,7 @@
 
 ## Description
 
-_This application creates a database to hold parks and their respective sizes and locations. One can create, update, or delete parks. One can also see a list of all parks._
+_This application creates a database to hold parks and their respective sizes and locations. One can create, update, or delete parks. One can also see a list of all parks. One can ALSO pick a random park from the data to check out._
 
 ## Setup/Installation Requirements
 
@@ -48,17 +48,17 @@ _This application creates a database to hold parks and their respective sizes an
 1. Open a SQL command line in a terminal. Copy and paste the contents of dani_renner.sql and hit enter.
 2. Quit out of SQL with Ctrl + c
 #### OR Using .NET
-1. In the terminal, navigate to the PierresTreats directory
+1. In the terminal, navigate to the ParksApi directory
 2. Enter "dotnet ef database update"
 ### Running the program
-* From the PierresTreats directory, enter "dotnet restore"
+* From the ParksApi directory, enter "dotnet restore"
 * Next, enter "dotnet build"
 * Enter "dotnet run" in the terminal and hit enter to start a local host. 
 * Ctrl + click the link that populates in the terminal to view the application in the webpage. It is probably http://localhost:5000/
 * Use Ctrl + C in the terminal to quit the host and close out of the window in the browser.
 ### Checking the API documentation using Swagger
 * Whatever URL your local host is using, just add "/swagger" to the end of it!
-* You can also USE the API from here 
+* You can also USE the API from here. Just click one of GET, POST, PUT, or DELETE buttons, and then click Try it out. 
 
 ## Known Bugs
  _No known bugs. Please email me if you are having any issues!_
