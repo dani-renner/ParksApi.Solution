@@ -21,7 +21,7 @@ namespace ParksApi.Controllers
       _db = db;
     }
     /// <summary>
-    /// Shows all parks.
+    /// Shows all parks. You can query by name or location.
     /// </summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get(string name, string location)
